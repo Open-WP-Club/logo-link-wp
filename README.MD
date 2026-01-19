@@ -1,12 +1,16 @@
-# WP Logo Link
+# Logo Link for WP
 
-A lightweight WordPress plugin that enhances your site logo's functionality by adding customizable click behaviors. Left-click directs to your homepage, while right-click leads to your specified assets page.
+A lightweight WordPress plugin that enhances your site logo's functionality by adding customizable click behaviors. Left-click directs to your homepage, while right-click opens a context menu with configurable options.
 
 ## Features
 
-- 🏠 Left-click on logo leads to homepage
-- 🎨 Right-click redirects to your assets page
-- 🔄 Falls back to Media Library if no assets URL is set
+- Left-click on logo leads to homepage
+- Right-click opens a custom context menu with two options:
+  - **Assets Mode**: Link to your media/assets page (defaults to Media Library)
+  - **Custom Mode**: Link to any custom URL with custom label text
+- Conditional script loading for better performance
+- Works with most WordPress themes
+- Accessible (keyboard navigation, high contrast, reduced motion support)
 
 ## Installation
 
@@ -22,40 +26,31 @@ git clone https://github.com/Open-WP-Club/wp-logo-link.git
 
 3. Activate the plugin through WordPress Admin → Plugins
 
-4. Configure the assets page URL in Settings → General
+4. Configure in Settings → General → Logo Link for WP Settings
 
 ## Configuration
 
-The plugin adds a simple setting in WordPress Admin:
-
-1. Go to Settings → General
-2. Scroll down to "WP Logo Link Settings"
-3. Enter your desired assets page URL
+1. Go to **Settings → General**
+2. Scroll down to **Logo Link for WP Settings**
+3. Choose right-click behavior:
+   - **Assets Mode**: Enter your assets/media page URL (or leave empty for Media Library)
+   - **Custom Mode**: Enter custom URL and optional link text
 4. Save changes
 
 ## Requirements
 
-- WordPress 5.0 or higher
-- Any theme that uses standard WordPress logo classes
-
-## Support
-
-If you encounter any issues or need assistance:
-
-1. Open an issue in this repository
-2. Provide details about your WordPress version and theme
-3. Include steps to reproduce the issue
+- WordPress 6.0+
+- PHP 8.2+
+- Theme with standard WordPress logo classes (`.custom-logo-link`, `.site-logo`, etc.)
 
 ## License
 
-This project is licensed under the GPL v2 License - see the [LICENSE](LICENSE) file for details.
+GPL v2 - see [LICENSE](LICENSE) for details.
 
 ## Contributing
 
-Contributions are welcome! Feel free to:
-
 1. Fork the repository
-2. Create your feature branch: `git checkout -b feature/awesome-feature`
-3. Commit your changes: `git commit -m 'Add awesome feature'`
-4. Push to the branch: `git push origin feature/awesome-feature`
+2. Create feature branch: `git checkout -b feature/awesome-feature`
+3. Commit changes: `git commit -m 'Add awesome feature'`
+4. Push: `git push origin feature/awesome-feature`
 5. Open a Pull Request

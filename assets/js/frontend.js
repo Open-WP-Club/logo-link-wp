@@ -1,10 +1,12 @@
 /**
- * WP Logo Link Frontend JavaScript
+ * Logo Link for WP Frontend JavaScript
  * Handles logo click behavior
  */
 
 (function() {
   'use strict';
+
+  let contextMenu = null;
 
   // Wait for DOM to be ready
   if (document.readyState === 'loading') {
@@ -16,7 +18,7 @@
   function initLogoLink() {
     // Get configuration from localized script
     if (typeof wpllConfig === 'undefined') {
-      console.warn('WP Logo Link: Configuration not found');
+      console.warn('Logo Link for WP: Configuration not found');
       return;
     }
 
@@ -26,13 +28,13 @@
     const siteLogo = findLogoElement(config.logoSelector);
     
     if (!siteLogo) {
-      console.warn('WP Logo Link: Logo element not found');
+      console.warn('Logo Link for WP: Logo element not found');
       return;
     }
 
     // Validate configuration
     if (!config.redirectUrl) {
-      console.warn('WP Logo Link: No redirect URL configured');
+      console.warn('Logo Link for WP: No redirect URL configured');
       return;
     }
 
@@ -73,8 +75,6 @@
   }
 
   function setupLogoInteractions(siteLogo, config) {
-    let contextMenu = null;
-
     // Create context menu lazily (only when needed)
     function createContextMenu() {
       if (contextMenu) {

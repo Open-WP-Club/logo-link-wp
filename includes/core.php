@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Main WP Logo Link Core
+ * Logo Link for WP - Core
  */
 
 // Prevent direct access
@@ -11,16 +11,8 @@ if (!defined('ABSPATH')) {
 
 class WP_Logo_Link
 {
-
-  /**
-   * Admin instance
-   */
-  public $admin;
-
-  /**
-   * Frontend instance
-   */
-  public $frontend;
+  public ?WP_Logo_Link_Admin $admin = null;
+  public ?WP_Logo_Link_Frontend $frontend = null;
 
   /**
    * Constructor
@@ -34,7 +26,7 @@ class WP_Logo_Link
   /**
    * Initialize hooks
    */
-  private function init_hooks()
+  private function init_hooks(): void
   {
     register_activation_hook(WPLL_PLUGIN_DIR . 'wp-logo-link.php', array($this, 'activate'));
     register_deactivation_hook(WPLL_PLUGIN_DIR . 'wp-logo-link.php', array($this, 'deactivate'));
@@ -43,7 +35,7 @@ class WP_Logo_Link
   /**
    * Initialize components
    */
-  private function init_components()
+  private function init_components(): void
   {
     // Initialize admin
     if (is_admin()) {
@@ -59,7 +51,7 @@ class WP_Logo_Link
   /**
    * Plugin activation
    */
-  public function activate()
+  public function activate(): void
   {
     // Set default options only if they don't exist
     if (!get_option('wpll_right_click_type')) {
@@ -79,22 +71,17 @@ class WP_Logo_Link
   /**
    * Plugin deactivation
    */
-  public function deactivate()
+  public function deactivate(): void
   {
-    // Clean up if needed - keeping options for now in case of reactivation
-    // Uncomment below to remove all plugin options on deactivation
-    
-    delete_option('wpll_right_click_type');
-    delete_option('wpll_assets_url');
-    delete_option('wpll_custom_text');
-    delete_option('wpll_custom_url');
-    
+    // Clear transient cache on deactivation
+    delete_transient('wpll_logo_selector_cache');
+    // Options are preserved for reactivation - deleted only on uninstall
   }
 
   /**
    * Get plugin version
    */
-  public function get_version()
+  public function get_version(): string
   {
     return WPLL_VERSION;
   }

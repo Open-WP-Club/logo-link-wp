@@ -1,7 +1,7 @@
 <?php
 
 /**
- * WP Logo Link Admin functionality with lazy loading optimizations
+ * Logo Link for WP - Admin functionality with lazy loading optimizations
  */
 
 // Prevent direct access
@@ -73,7 +73,7 @@ class WP_Logo_Link_Admin
   {
     add_settings_section(
       'wpll_settings_section',
-      'WP Logo Link Settings',
+      'Logo Link for WP Settings',
       array($this, 'settings_section_callback'),
       'general'
     );

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * WP Logo Link Frontend functionality
+ * Logo Link for WP - Frontend functionality
  */
 
 // Prevent direct access
@@ -11,8 +11,8 @@ if (!defined('ABSPATH')) {
 
 class WP_Logo_Link_Frontend
 {
-  private $cache_key = 'wpll_logo_selector_cache';
-  private $cache_duration = 24 * HOUR_IN_SECONDS; // 24 hours
+  private string $cache_key = 'wpll_logo_selector_cache';
+  private int $cache_duration = 24 * HOUR_IN_SECONDS;
 
   /**
    * Constructor

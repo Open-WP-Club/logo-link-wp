@@ -1,5 +1,5 @@
 /**
- * WP Logo Link Admin JavaScript
+ * Logo Link for WP - Admin JavaScript
  * Handles admin interface interactions with lazy loading
  */
 
